@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./public/Assets/css/style.css"/> 
     
 </head>
-<body>
+<body style="padding-top: 3.5rem;">
     <nav     class="navbar navbar-expand-md fixed-top">
         <img class="logo" src="./public/Assets/images/google-meet-icon.png" alt="meeting room icon" />
         <a   class="navbar-brand text-dark" href="#">Room Meeting</a>
@@ -25,8 +25,78 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Price and Plans</a>
                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How it works</a>
+               </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+               <li class="nav-item sign-in display-center">
+                    <a class="nav-link" href="#">Sign in</a>
+               </li> 
+                <li class="nav-item">
+                    <button class="btn btn-outline-secondary btn-lg text-info font-weight-bold join-meeting">Join A Meeting</button>
+               </li>
+                <li class="nav-item">
+                    <button class="btn btn-info btn-lg text-light font-weight-bold start-meeting">Create A Meeting</button>
+               </li>
             </ul>
         </div>
     </nav>    
+
+    <main>
+        <div class="jumbotron h-100 d-flex">
+            <div class="container w-50">
+                <h1 style="font-size: 3rem;" >Premium video meeting now it is available for free to everyone</h1>
+                <p style="font-size: 20px;">
+                    We are offer a video meeting service for secure business meetings 
+                    and making it free for everyone to use.
+                </p>
+                <ul class="display-center justify-content-start">
+                    <li style="padding: 0;">
+                        <button class="btn btn-md text-light font-weight-bold display-center start-meeting"
+                          style="background-color: #01796b;">
+                            <span class="material-icons mr-2">video_call</span>
+                             New Meeting
+                        </button>
+                    </li>
+                     <li class="pl-3">
+                        <button class="btn btn-md btn-outline-secondary text-dark font-weight-bold display-center"
+                          style="background-color: #ffffff;">
+                            <span class="material-icons mr-2">keyboard</span>
+                            <input type="text" placeholder="Enter a code" class="enter-code" style="border: none;" />
+                        </button>
+                    </li>
+                    <li class="text-dark pl-4 font-weight-bold cursor-pointer join-action">Join</li>
+                </ul>
+            </div>
+            <div class="container w-50">
+                <img src="public/Assets/images/google-meet-people.jpg" alt="signing-image" class="signin-image"/>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <h6>Learn more about <span class="learn-more text-info">Room meeting</span></h6>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(function(){
+               $(document).on("click", ".join-meeting", function(){
+                   $(".enter-code").focus();
+               }) 
+
+                $(document).on("click", ".join-action", function(){
+                   const joinValue = $('.enter-code').val();
+                   let meetingUrl= window.location.origin+"?meetingId="+joinValue;
+                   window.location.replace(meetingUrl)
+               })
+
+                $(document).on("click", ".start-meeting", function(){
+                   const randomValue = Math.floor(Math.random()*100000000)
+                   let meetingUrl= window.location.origin+"?meetingId="+randomValue;
+                   window.location.replace(randomValue)
+               })
+            })
+        </script>
+    </footer>
 </body>
 </html>
