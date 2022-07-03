@@ -31,7 +31,18 @@ io.on('connection', (socket) => {
                     userId,
                     connectionId: socket.id,
                 });
-            })
+            });
+
+            socket.emit('informMeAboutOtherUser', {
+                meetingUsers,
+            });
         }
+    })
+
+    socket.on('SDPProcess', ({message, toConnectionId}) => {
+        socket.to(toConnectionId).emit('SDPProcess', {
+            message, 
+            fromConnectionId: socket.id,
+        });
     })
 })

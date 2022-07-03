@@ -87,13 +87,14 @@
                 $(document).on("click", ".join-action", function(){
                    const joinValue = $('.enter-code').val();
                    let meetingUrl= window.location.origin+"?meetingId="+joinValue;
+                   alert(meetingUrl)
                    window.location.replace(meetingUrl)
                })
 
                 $(document).on("click", ".start-meeting", function(){
                    const randomValue = Math.floor(Math.random()*100000000)
                    let meetingUrl= window.location.origin+"?meetingId="+randomValue;
-                   window.location.replace(randomValue)
+                   window.location.replace(meetingUrl)
                })
             })
         </script>

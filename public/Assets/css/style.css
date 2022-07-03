@@ -133,3 +133,14 @@ textarea:focus, input:focus{
     -ms-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+
+.top-remote-video-show-wrap{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+video{
+    border: 1px solid gray;
+    width: 300px;
+}
